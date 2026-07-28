@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tndforever</title>
+    <!-- Font Minimalis dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header / Logo */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: #111111;
+            text-transform: lowercase;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #10b981;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .status-text {
+            font-size: 0.8rem;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        /* Hero / Content Utama */
+        main {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #666666;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        /* CTA Button Minimalis */
+        .cta-btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            border-radius: 100px;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        /* Footer / Links */
+        footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 0.8rem;
+        }
+
+        .social-links a {
+            color: #666666;
+            text-decoration: none;
+            margin-right: 1.2rem;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: #111111;
+        }
+
+        .copyright {
+            color: #999999;
+            font-weight: 300;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="brand-logo">tndforever</a>
+        <div>
+            <span class="status-dot"></span>
+            <span class="status-text">Available for projects</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Timeless design for the modern era.</h1>
+        <p>Kami menciptakan identitas visual dan pengalaman digital yang bersih, berkarakter, dan bertahan lama.</p>
+        <a href="#explore" class="cta-btn">Jelajahi Karya</a>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Twitter/X</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 tndforever.
+        </div>
+    </footer>
+
+</body>
+</html>
