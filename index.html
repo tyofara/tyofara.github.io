@@ -2,7 +2,11 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Tyo & Fara — Wedding Invitation</title>
 
@@ -11,13 +15,27 @@
         content="Wedding Invitation of Tyo & Fara — 27 March 2027"
     >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- =========================
+         GOOGLE FONTS
+    ========================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet"
     >
+
 
     <style>
 
@@ -31,41 +49,53 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
             font-family: 'Inter', sans-serif;
+
             background: #f8f6f1;
             color: #2b2b2b;
+
             line-height: 1.6;
 
-            /*
-            Saat pertama kali masuk,
-            halaman tidak bisa discroll.
-            */
             overflow: hidden;
         }
 
+
         body.invitation-open {
-            overflow: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
+
 
         button,
         a {
             -webkit-tap-highlight-color: transparent;
         }
 
+
+        button {
+            font-family: inherit;
+        }
+
+
         section {
             padding: 90px 24px;
         }
 
+
         .container {
             width: 100%;
             max-width: 900px;
+
             margin: 0 auto;
         }
+
 
 
         /* =========================
@@ -74,41 +104,58 @@
 
         .cover {
             position: fixed;
+
             inset: 0;
 
             width: 100%;
+            height: 100vh;
             height: 100dvh;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            text-align: center;
-
             padding: 30px 24px;
+
+            text-align: center;
 
             z-index: 1000;
 
+
             background:
+
                 linear-gradient(
                     rgba(248, 246, 241, 0.78),
                     rgba(248, 246, 241, 0.94)
                 ),
-                url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85');
+
+                url(
+                    'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85'
+                );
+
 
             background-size: cover;
             background-position: center;
 
+
+            opacity: 1;
+            visibility: visible;
+
+
             transition:
-                opacity 1s ease,
-                visibility 1s ease;
+                opacity 0.9s ease,
+                visibility 0.9s ease;
         }
+
 
         .cover.hidden {
             opacity: 0;
+
             visibility: hidden;
+
             pointer-events: none;
         }
+
 
         .cover-content {
             width: 100%;
@@ -117,17 +164,30 @@
             animation: coverFade 1.2s ease;
         }
 
+
         @keyframes coverFade {
+
             from {
                 opacity: 0;
-                transform: translateY(20px);
+
+                transform:
+                    translateY(20px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
+
         }
+
+
+
+        /* =========================
+           TYPOGRAPHY
+        ========================== */
 
         .eyebrow {
             text-transform: uppercase;
@@ -142,16 +202,20 @@
             margin-bottom: 22px;
         }
 
+
         .cover h1 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family:
+                'Cormorant Garamond',
+                serif;
 
             font-weight: 500;
 
-            font-size: clamp(
-                3.8rem,
-                13vw,
-                7rem
-            );
+            font-size:
+                clamp(
+                    3.8rem,
+                    13vw,
+                    7rem
+                );
 
             line-height: 0.9;
 
@@ -159,6 +223,7 @@
 
             margin-bottom: 28px;
         }
+
 
         .ampersand {
             display: inline-block;
@@ -171,8 +236,11 @@
             margin: 0 6px;
         }
 
+
         .cover-date {
-            font-family: 'Cormorant Garamond', serif;
+            font-family:
+                'Cormorant Garamond',
+                serif;
 
             font-size: 1.55rem;
 
@@ -180,6 +248,7 @@
 
             margin-bottom: 46px;
         }
+
 
         .guest-label {
             font-size: 0.69rem;
@@ -193,27 +262,35 @@
             margin-bottom: 8px;
         }
 
-        .guest-name {
-            font-family: 'Cormorant Garamond', serif;
 
-            font-size: clamp(
-                1.8rem,
-                6vw,
-                2.6rem
-            );
+        .guest-name {
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(
+                    1.8rem,
+                    6vw,
+                    2.6rem
+                );
 
             font-weight: 500;
 
             margin-bottom: 30px;
+
+            overflow-wrap: anywhere;
         }
 
 
+
         /* =========================
-           BUTTON
+           GENERAL BUTTON
         ========================== */
 
         .button {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
@@ -228,8 +305,6 @@
 
             border-radius: 100px;
 
-            font-family: 'Inter', sans-serif;
-
             font-size: 0.82rem;
             font-weight: 400;
 
@@ -242,20 +317,32 @@
                 transform 0.25s ease;
         }
 
+
         .button:hover {
             opacity: 0.85;
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
         }
 
 
+        .button:active {
+            transform:
+                translateY(0);
+        }
+
+
+
         /* =========================
-           MAIN HERO
+           HERO
         ========================== */
 
         .hero {
             min-height: 100vh;
+            min-height: 100dvh;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -263,30 +350,41 @@
 
             padding: 80px 24px;
 
+
             background:
+
                 linear-gradient(
                     rgba(248, 246, 241, 0.90),
                     rgba(248, 246, 241, 0.96)
                 ),
-                url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=85');
+
+                url(
+                    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=85'
+                );
+
 
             background-size: cover;
             background-position: center;
         }
+
 
         .hero-content {
             width: 100%;
             max-width: 750px;
         }
 
-        .hero h2 {
-            font-family: 'Cormorant Garamond', serif;
 
-            font-size: clamp(
-                3rem,
-                9vw,
-                6rem
-            );
+        .hero h2 {
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(
+                    3rem,
+                    9vw,
+                    6rem
+                );
 
             font-weight: 500;
 
@@ -297,8 +395,11 @@
             margin-bottom: 28px;
         }
 
+
         .hero-date {
-            font-family: 'Cormorant Garamond', serif;
+            font-family:
+                'Cormorant Garamond',
+                serif;
 
             font-size: 1.5rem;
 
@@ -306,6 +407,7 @@
 
             margin-bottom: 30px;
         }
+
 
         .hero-description {
             max-width: 600px;
@@ -320,6 +422,7 @@
         }
 
 
+
         /* =========================
            INTRO
         ========================== */
@@ -328,14 +431,18 @@
             text-align: center;
         }
 
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
 
-            font-size: clamp(
-                2.5rem,
-                7vw,
-                4.5rem
-            );
+        .section-title {
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(
+                    2.5rem,
+                    7vw,
+                    4.5rem
+                );
 
             font-weight: 500;
 
@@ -343,6 +450,7 @@
 
             margin-bottom: 26px;
         }
+
 
         .intro p {
             max-width: 650px;
@@ -357,6 +465,7 @@
         }
 
 
+
         /* =========================
            COUPLE
         ========================== */
@@ -364,6 +473,7 @@
         .couple {
             background: #ffffff;
         }
+
 
         .couple-grid {
             display: grid;
@@ -380,19 +490,24 @@
             text-align: center;
         }
 
-        .person h3 {
-            font-family: 'Cormorant Garamond', serif;
 
-            font-size: clamp(
-                2.3rem,
-                6vw,
-                3.1rem
-            );
+        .person h3 {
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    6vw,
+                    3.1rem
+                );
 
             font-weight: 500;
 
             margin-bottom: 10px;
         }
+
 
         .person p {
             color: #81796f;
@@ -402,8 +517,11 @@
             line-height: 1.8;
         }
 
+
         .couple-symbol {
-            font-family: 'Cormorant Garamond', serif;
+            font-family:
+                'Cormorant Garamond',
+                serif;
 
             font-size: 2.6rem;
 
@@ -411,6 +529,7 @@
 
             color: #9d8a72;
         }
+
 
 
         /* =========================
@@ -421,16 +540,18 @@
             text-align: center;
         }
 
+
         .event-card {
             width: 100%;
-
             max-width: 650px;
 
             margin: 42px auto 0;
 
             padding: 48px 34px;
 
-            border: 1px solid #ded8cf;
+            border:
+                1px solid
+                #ded8cf;
 
             background:
                 rgba(
@@ -441,8 +562,11 @@
                 );
         }
 
+
         .event-card h3 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family:
+                'Cormorant Garamond',
+                serif;
 
             font-size: 2.4rem;
 
@@ -451,13 +575,17 @@
             margin-bottom: 16px;
         }
 
+
         .event-date {
-            font-family: 'Cormorant Garamond', serif;
+            font-family:
+                'Cormorant Garamond',
+                serif;
 
             font-size: 1.7rem;
 
             margin-bottom: 18px;
         }
+
 
         .event-detail {
             margin: 7px 0;
@@ -467,9 +595,11 @@
             font-size: 0.9rem;
         }
 
+
         .event-card .button {
             margin-top: 28px;
         }
+
 
 
         /* =========================
@@ -484,14 +614,18 @@
             text-align: center;
         }
 
-        .quote p {
-            font-family: 'Cormorant Garamond', serif;
 
-            font-size: clamp(
-                1.9rem,
-                6vw,
-                3.2rem
-            );
+        .quote p {
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size:
+                clamp(
+                    1.9rem,
+                    6vw,
+                    3.2rem
+                );
 
             max-width: 720px;
 
@@ -501,6 +635,7 @@
 
             line-height: 1.3;
         }
+
 
 
         /* =========================
@@ -517,8 +652,11 @@
             color: #91887d;
         }
 
+
         .footer-names {
-            font-family: 'Cormorant Garamond', serif;
+            font-family:
+                'Cormorant Garamond',
+                serif;
 
             font-size: 1.6rem;
 
@@ -526,6 +664,7 @@
 
             margin-bottom: 8px;
         }
+
 
 
         /* =========================
@@ -542,10 +681,13 @@
             height: 46px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            border: 1px solid #ded8cf;
+            border:
+                1px solid
+                #ded8cf;
 
             border-radius: 50%;
 
@@ -565,75 +707,219 @@
 
             z-index: 900;
 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
 
             box-shadow:
                 0 5px 25px
-                rgba(0,0,0,0.06);
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.06
+                );
 
             opacity: 0;
+
             visibility: hidden;
+
+            pointer-events: none;
 
             transition:
                 opacity 0.5s ease,
-                transform 0.25s ease;
+                transform 0.25s ease,
+                visibility 0.5s ease;
         }
+
 
         .music-btn.visible {
             opacity: 1;
+
             visibility: visible;
+
+            pointer-events: auto;
         }
+
 
         .music-btn:hover {
-            transform: scale(1.05);
+            transform:
+                scale(1.05);
         }
+
 
         .music-btn.playing {
-            animation: musicPulse 2s infinite ease-in-out;
+            animation:
+                musicPulse
+                2s infinite
+                ease-in-out;
         }
 
+
         @keyframes musicPulse {
+
             0%,
             100% {
-                transform: scale(1);
+                transform:
+                    scale(1);
             }
 
             50% {
-                transform: scale(1.06);
+                transform:
+                    scale(1.06);
             }
+
         }
 
 
+
         /* =========================
-           FADE IN CONTENT
+           BACK TO COVER BUTTON
+        ========================== */
+
+        .back-cover-btn {
+            position: fixed;
+
+            left: 20px;
+            bottom: 20px;
+
+            min-height: 46px;
+
+            padding: 0 18px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+
+            border:
+                1px solid
+                #ded8cf;
+
+            border-radius: 100px;
+
+
+            background:
+                rgba(
+                    248,
+                    246,
+                    241,
+                    0.92
+                );
+
+
+            color: #2e2b27;
+
+
+            font-size: 0.72rem;
+            font-weight: 400;
+
+            letter-spacing: 0.03em;
+
+
+            cursor: pointer;
+
+
+            z-index: 900;
+
+
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
+
+
+            box-shadow:
+                0 5px 25px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.06
+                );
+
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+
+            transform:
+                translateY(8px);
+
+
+            transition:
+                opacity 0.5s ease,
+                transform 0.35s ease,
+                visibility 0.5s ease;
+        }
+
+
+        .back-cover-btn.visible {
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .back-cover-btn:hover {
+            transform:
+                translateY(-2px);
+        }
+
+
+
+        /* =========================
+           FADE SECTION
         ========================== */
 
         .fade-section {
             opacity: 0;
 
-            transform: translateY(25px);
+            transform:
+                translateY(25px);
 
             transition:
                 opacity 0.9s ease,
                 transform 0.9s ease;
         }
 
+
         .fade-section.visible {
             opacity: 1;
-            transform: translateY(0);
+
+            transform:
+                translateY(0);
         }
 
 
+
         /* =========================
-           RESPONSIVE
+           MOBILE
         ========================== */
 
-        @media (max-width: 700px) {
+        @media
+        (max-width: 700px) {
 
             section {
-                padding: 72px 20px;
+                padding:
+                    72px
+                    20px;
             }
+
 
             .cover {
                 padding:
@@ -642,20 +928,27 @@
                     45px;
             }
 
+
             .cover-date {
                 font-size: 1.3rem;
+
                 margin-bottom: 38px;
             }
 
+
             .couple-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
 
                 gap: 28px;
             }
 
+
             .couple-symbol {
-                transform: rotate(90deg);
+                transform:
+                    rotate(90deg);
             }
+
 
             .event-card {
                 padding:
@@ -663,75 +956,58 @@
                     24px;
             }
 
+
             .music-btn {
                 right: 16px;
                 bottom: 16px;
             }
 
+
+            .back-cover-btn {
+                left: 16px;
+                bottom: 16px;
+
+                padding:
+                    0
+                    15px;
+            }
+
         }
 
 
-        /* Reduce animation if requested */
 
-        @media (
+        /* =========================
+           REDUCED MOTION
+        ========================== */
+
+        @media
+        (
             prefers-reduced-motion:
             reduce
         ) {
 
             html {
-                scroll-behavior: auto;
+                scroll-behavior:
+                    auto;
             }
+
 
             *,
             *::before,
             *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
+                animation-duration:
+                    0.01ms !important;
+
+                transition-duration:
+                    0.01ms !important;
             }
 
         }
 
-        .back-cover-btn {
-            position: fixed;
-        
-            left: 20px;
-            bottom: 20px;
-        
-            width: 46px;
-            height: 46px;
-        
-            border: 1px solid #ded8cf;
-            border-radius: 50%;
-        
-            background: rgba(248, 246, 241, 0.92);
-            color: #2e2b27;
-        
-            cursor: pointer;
-        
-            z-index: 900;
-        
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        
-            opacity: 0;
-            visibility: hidden;
-        
-            transition:
-                opacity 0.5s ease,
-                transform 0.25s ease;
-        }
-        
-        .back-cover-btn.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-cover-btn:hover {
-            transform: translateY(-2px);
-        }
-        
     </style>
+
 </head>
+
 
 
 <body>
@@ -744,12 +1020,14 @@
     <audio
         id="wedding-music"
         loop
-        preload="auto"
+        preload="metadata"
     >
+
         <source
             src="assets/paulyudin-157981.mp3"
             type="audio/mpeg"
         >
+
     </audio>
 
 
@@ -765,9 +1043,11 @@
 
         <div class="cover-content">
 
+
             <div class="eyebrow">
                 The Wedding Of
             </div>
+
 
             <h1>
 
@@ -783,12 +1063,16 @@
 
 
             <div class="cover-date">
+
                 27 · 03 · 2027
+
             </div>
 
 
             <div class="guest-label">
+
                 Dear
+
             </div>
 
 
@@ -796,7 +1080,9 @@
                 class="guest-name"
                 id="guest-name"
             >
+
                 Our Beloved Guest
+
             </div>
 
 
@@ -805,8 +1091,11 @@
                 id="open-invitation"
                 type="button"
             >
+
                 Open Invitation
+
             </button>
+
 
         </div>
 
@@ -815,8 +1104,26 @@
 
 
     <!-- =========================
-         MUSIC BUTTON
+         FLOATING CONTROLS
     ========================== -->
+
+    <button
+        id="back-to-cover"
+        class="back-cover-btn"
+        type="button"
+        aria-label="Back to invitation cover"
+    >
+
+        <span>
+            ←
+        </span>
+
+        <span>
+            Cover
+        </span>
+
+    </button>
+
 
     <button
         id="music-toggle"
@@ -825,20 +1132,15 @@
         aria-label="Toggle wedding music"
         title="Music"
     >
+
         ♫
+
     </button>
 
-    <button
-        id="back-to-cover"
-        class="back-cover-btn"
-        type="button"
-    >
-        Back to Cover ↑
-    </button>
 
 
     <!-- =========================
-         HERO
+         MAIN HERO
     ========================== -->
 
     <section
@@ -848,21 +1150,31 @@
 
         <div class="hero-content">
 
+
             <div class="eyebrow">
+
                 Together With Our Families
+
             </div>
 
+
             <h2>
+
                 Tyo
+
                 <span class="ampersand">
                     &
                 </span>
+
                 Fara
+
             </h2>
 
 
             <div class="hero-date">
+
                 27 Maret 2027
+
             </div>
 
 
@@ -875,6 +1187,7 @@
                 perjalanan hidup kami.
 
             </p>
+
 
         </div>
 
@@ -893,12 +1206,18 @@
 
         <div class="container">
 
+
             <div class="eyebrow">
+
                 Our Wedding
+
             </div>
 
+
             <h2 class="section-title">
+
                 We Are Getting Married
+
             </h2>
 
 
@@ -913,6 +1232,7 @@
 
             </p>
 
+
         </div>
 
     </section>
@@ -923,7 +1243,9 @@
          COUPLE
     ========================== -->
 
-    <section class="couple fade-section">
+    <section
+        class="couple fade-section"
+    >
 
         <div class="container">
 
@@ -945,7 +1267,9 @@
                         <br>
 
                         Bapak Nama Ayah
+
                         &amp;
+
                         Ibu Nama Ibu
 
                     </p>
@@ -953,9 +1277,13 @@
                 </div>
 
 
+
                 <div class="couple-symbol">
+
                     &
+
                 </div>
+
 
 
                 <!-- BRIDE -->
@@ -973,7 +1301,9 @@
                         <br>
 
                         Bapak Nama Ayah
+
                         &amp;
+
                         Ibu Nama Ibu
 
                     </p>
@@ -993,34 +1323,48 @@
          EVENT
     ========================== -->
 
-    <section class="event fade-section">
+    <section
+        class="event fade-section"
+    >
 
         <div class="container">
 
+
             <div class="eyebrow">
+
                 Save The Date
+
             </div>
 
 
             <h2 class="section-title">
+
                 Wedding Celebration
+
             </h2>
 
 
             <div class="event-card">
 
+
                 <h3>
+
                     Sabtu
+
                 </h3>
 
 
                 <div class="event-date">
+
                     27 Maret 2027
+
                 </div>
 
 
                 <div class="event-detail">
+
                     10.00 WIB — selesai
+
                 </div>
 
 
@@ -1028,12 +1372,16 @@
                     class="event-detail"
                     style="margin-top: 20px;"
                 >
+
                     Wedding Venue
+
                 </div>
 
 
                 <div class="event-detail">
+
                     Padang, Sumatera Barat
+
                 </div>
 
 
@@ -1043,8 +1391,11 @@
                     rel="noopener noreferrer"
                     class="button"
                 >
+
                     View Location
+
                 </a>
+
 
             </div>
 
@@ -1058,7 +1409,9 @@
          QUOTE
     ========================== -->
 
-    <section class="quote fade-section">
+    <section
+        class="quote fade-section"
+    >
 
         <div class="container">
 
@@ -1080,22 +1433,34 @@
          FOOTER
     ========================== -->
 
-    <footer class="fade-section">
+    <footer
+        class="fade-section"
+    >
+
 
         <div class="footer-names">
+
             Tyo & Fara
+
         </div>
 
 
         <div>
+
             Thank you for celebrating
             with us.
+
         </div>
 
 
-        <div style="margin-top: 10px;">
+        <div
+            style="margin-top: 10px;"
+        >
+
             27 · 03 · 2027
+
         </div>
+
 
     </footer>
 
@@ -1108,7 +1473,7 @@
     <script>
 
         /* =========================
-           PERSONALIZED GUEST
+           QUERY PARAMETERS
         ========================== */
 
         const params =
@@ -1121,17 +1486,36 @@
             params.get('name');
 
 
+        /*
+        Optional ID untuk dipakai
+        nanti saat RSVP.
+        Contoh:
+
+        ?id=A001&name=Bapak%20Andi
+        */
+
+        const guestId =
+            params.get('id');
+
+
+
+        /* =========================
+           PERSONALIZED NAME
+        ========================== */
+
+        const guestNameElement =
+            document.getElementById(
+                'guest-name'
+            );
+
+
         if (
             guestName &&
             guestName.trim() !== ''
         ) {
 
-            document
-                .getElementById(
-                    'guest-name'
-                )
-                .textContent =
-                    guestName.trim();
+            guestNameElement.textContent =
+                guestName.trim();
 
         }
 
@@ -1164,21 +1548,27 @@
                 'music-toggle'
             );
 
+
         const backToCover =
-            document.getElementById('back-to-cover');
-        
-        let isPlaying = false;
+            document.getElementById(
+                'back-to-cover'
+            );
 
 
 
         /* =========================
-           MUSIC SETTINGS
+           STATE
         ========================== */
 
-        /*
-        Volume 0.45 = 45%.
-        Bisa dinaikkan / diturunkan.
-        */
+        let isPlaying = false;
+
+        let invitationOpened = false;
+
+
+
+        /* =========================
+           MUSIC
+        ========================== */
 
         music.volume = 0.45;
 
@@ -1193,6 +1583,7 @@
                 musicButton.textContent =
                     '❚❚';
 
+
                 musicButton.classList.add(
                     'playing'
                 );
@@ -1201,6 +1592,7 @@
 
                 musicButton.textContent =
                     '♫';
+
 
                 musicButton.classList.remove(
                     'playing'
@@ -1232,18 +1624,21 @@
 
                     })
 
-                    .catch((error) => {
+                    .catch(
+                        (error) => {
 
-                        console.log(
-                            'Music playback failed:',
-                            error
-                        );
+                            console.log(
+                                'Music playback failed:',
+                                error
+                            );
 
-                        isPlaying = false;
 
-                        setMusicUI(false);
+                            isPlaying = false;
 
-                    });
+                            setMusicUI(false);
+
+                        }
+                    );
 
             }
 
@@ -1267,108 +1662,158 @@
            OPEN INVITATION
         ========================== */
 
-        openInvitation
-            .addEventListener(
-                'click',
-                () => {
+        function openWeddingInvitation() {
 
-                    /*
-                    Karena klik user dianggap
-                    interaction,
-                    browser biasanya mengizinkan
-                    musik mulai di sini.
-                    */
-
-                    playMusic();
+            invitationOpened = true;
 
 
-                    /*
-                    Fade out cover.
-                    */
+            /*
+            Start music.
+            */
 
-                    cover.classList.add(
-                        'hidden'
-                    );
+            if (!isPlaying) {
 
+                playMusic();
 
-                    /*
-                    Enable scroll.
-                    */
-
-                    document.body
-                        .classList.add(
-                            'invitation-open'
-                        );
+            }
 
 
-                    /*
-                    Show music control.
-                    */
+            /*
+            Hide cover.
+            */
 
-                    musicButton
-                        .classList.add(
-                            'visible'
-                        );
-
-
-                    /*
-                    Mulai dari atas halaman.
-                    */
-
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'instant'
-                    });
-
-                }
+            cover.classList.add(
+                'hidden'
             );
 
-            backToCover.addEventListener('click', () => {
-            
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            
-                setTimeout(() => {
-            
+
+            /*
+            Allow scrolling.
+            */
+
+            document.body.classList.add(
+                'invitation-open'
+            );
+
+
+            /*
+            Show floating controls.
+            */
+
+            musicButton.classList.add(
+                'visible'
+            );
+
+
+            backToCover.classList.add(
+                'visible'
+            );
+
+
+            /*
+            Return page to top.
+            */
+
+            window.scrollTo(
+                0,
+                0
+            );
+
+        }
+
+
+
+        openInvitation.addEventListener(
+            'click',
+            openWeddingInvitation
+        );
+
+
+
+        /* =========================
+           BACK TO COVER
+        ========================== */
+
+        function showCover() {
+
+            invitationOpened = false;
+
+
+            /*
+            Scroll page back to top
+            before displaying cover.
+            */
+
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+
+
+            /*
+            Small delay makes
+            transition feel smoother.
+            */
+
+            setTimeout(
+                () => {
+
                     cover.classList.remove(
                         'hidden'
                     );
-            
+
+
                     document.body.classList.remove(
                         'invitation-open'
                     );
-            
+
+
+                    musicButton.classList.remove(
+                        'visible'
+                    );
+
+
                     backToCover.classList.remove(
                         'visible'
                     );
-            
-                }, 300);
-            
-            });
+
+                },
+
+                300
+            );
+
+        }
+
+
+
+        backToCover.addEventListener(
+            'click',
+            showCover
+        );
+
+
 
         /* =========================
            MUSIC TOGGLE
         ========================== */
 
-        musicButton
-            .addEventListener(
-                'click',
-                () => {
+        musicButton.addEventListener(
+            'click',
+            () => {
 
-                    if (isPlaying) {
+                if (isPlaying) {
 
-                        pauseMusic();
+                    pauseMusic();
 
-                    } else {
+                } else {
 
-                        playMusic();
-
-                    }
+                    playMusic();
 
                 }
-            );
+
+            }
+        );
 
 
 
@@ -1411,45 +1856,94 @@
             );
 
 
-        const observer =
-            new IntersectionObserver(
+        if (
+            'IntersectionObserver'
+            in window
+        ) {
 
-                (entries) => {
+            const observer =
+                new IntersectionObserver(
 
-                    entries.forEach(
-                        (entry) => {
+                    (entries) => {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                        entries.forEach(
+                            (entry) => {
 
-                                entry.target
-                                    .classList
-                                    .add(
-                                        'visible'
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    entry.target
+                                        .classList
+                                        .add(
+                                            'visible'
+                                        );
+
+
+                                    observer.unobserve(
+                                        entry.target
                                     );
 
+                                }
+
                             }
+                        );
 
-                        }
-                    );
+                    },
 
-                },
+                    {
+                        threshold: 0.15
+                    }
 
-                {
-                    threshold: 0.15
-                }
-
-            );
-
-
-        animatedSections.forEach(
-            (section) => {
-
-                observer.observe(
-                    section
                 );
 
+
+            animatedSections.forEach(
+                (section) => {
+
+                    observer.observe(
+                        section
+                    );
+
+                }
+            );
+
+        } else {
+
+            /*
+            Fallback browser lama.
+            */
+
+            animatedSections.forEach(
+                (section) => {
+
+                    section.classList.add(
+                        'visible'
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================
+           DEBUG OPTIONAL
+        ========================== */
+
+        /*
+        Bisa dihapus nanti.
+
+        Berguna untuk memastikan
+        URL parameter terbaca.
+        */
+
+        console.log(
+            'Guest:',
+            {
+                id: guestId,
+                name: guestName
             }
         );
 
