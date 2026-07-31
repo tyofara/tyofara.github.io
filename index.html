@@ -691,6 +691,45 @@
 
         }
 
+        .back-cover-btn {
+            position: fixed;
+        
+            left: 20px;
+            bottom: 20px;
+        
+            width: 46px;
+            height: 46px;
+        
+            border: 1px solid #ded8cf;
+            border-radius: 50%;
+        
+            background: rgba(248, 246, 241, 0.92);
+            color: #2e2b27;
+        
+            cursor: pointer;
+        
+            z-index: 900;
+        
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        
+            opacity: 0;
+            visibility: hidden;
+        
+            transition:
+                opacity 0.5s ease,
+                transform 0.25s ease;
+        }
+        
+        .back-cover-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-cover-btn:hover {
+            transform: translateY(-2px);
+        }
+        
     </style>
 </head>
 
@@ -789,6 +828,13 @@
         ♫
     </button>
 
+    <button
+        id="back-to-cover"
+        class="back-cover-btn"
+        type="button"
+    >
+        Back to Cover ↑
+    </button>
 
 
     <!-- =========================
@@ -1118,7 +1164,9 @@
                 'music-toggle'
             );
 
-
+        const backToCover =
+            document.getElementById('back-to-cover');
+        
         let isPlaying = false;
 
 
@@ -1275,7 +1323,30 @@
                 }
             );
 
-
+            backToCover.addEventListener('click', () => {
+            
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            
+                setTimeout(() => {
+            
+                    cover.classList.remove(
+                        'hidden'
+                    );
+            
+                    document.body.classList.remove(
+                        'invitation-open'
+                    );
+            
+                    backToCover.classList.remove(
+                        'visible'
+                    );
+            
+                }, 300);
+            
+            });
 
         /* =========================
            MUSIC TOGGLE
