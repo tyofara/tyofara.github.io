@@ -1,17 +1,31 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Wedding Invitation</title>
+    <title>Tyo & Fara — Wedding Invitation</title>
+
+    <meta
+        name="description"
+        content="Wedding Invitation of Tyo & Fara — 27 March 2027"
+    >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -27,103 +41,289 @@
             background: #f8f6f1;
             color: #2b2b2b;
             line-height: 1.6;
+
+            /*
+            Saat pertama kali masuk,
+            halaman tidak bisa discroll.
+            */
+            overflow: hidden;
+        }
+
+        body.invitation-open {
+            overflow: auto;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
         }
 
         section {
-            padding: 80px 24px;
+            padding: 90px 24px;
         }
 
         .container {
+            width: 100%;
             max-width: 900px;
             margin: 0 auto;
         }
 
-        /* HERO */
 
-        .hero {
-            min-height: 100vh;
+        /* =========================
+           COVER
+        ========================== */
+
+        .cover {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100dvh;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
-            padding: 40px 24px;
+
+            padding: 30px 24px;
+
+            z-index: 1000;
+
             background:
                 linear-gradient(
-                    rgba(248, 246, 241, 0.84),
+                    rgba(248, 246, 241, 0.78),
                     rgba(248, 246, 241, 0.94)
                 ),
                 url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85');
+
             background-size: cover;
             background-position: center;
+
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
         }
 
-        .hero-content {
+        .cover.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .cover-content {
+            width: 100%;
             max-width: 700px;
+
+            animation: coverFade 1.2s ease;
+        }
+
+        @keyframes coverFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .eyebrow {
             text-transform: uppercase;
-            letter-spacing: 0.22em;
-            font-size: 0.72rem;
-            color: #7d7467;
-            margin-bottom: 20px;
+
+            letter-spacing: 0.24em;
+
+            font-size: 0.7rem;
+            font-weight: 400;
+
+            color: #756d63;
+
+            margin-bottom: 22px;
         }
 
-        .hero h1 {
+        .cover h1 {
             font-family: 'Cormorant Garamond', serif;
+
             font-weight: 500;
-            font-size: clamp(3.2rem, 10vw, 6.5rem);
-            line-height: 0.95;
-            letter-spacing: -0.04em;
-            margin-bottom: 24px;
+
+            font-size: clamp(
+                3.8rem,
+                13vw,
+                7rem
+            );
+
+            line-height: 0.9;
+
+            letter-spacing: -0.045em;
+
+            margin-bottom: 28px;
         }
 
         .ampersand {
+            display: inline-block;
+
             font-style: italic;
             font-weight: 400;
-            color: #8a7660;
+
+            color: #927d66;
+
+            margin: 0 6px;
         }
 
-        .hero-date {
+        .cover-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            margin-bottom: 40px;
-            color: #5f574d;
+
+            font-size: 1.55rem;
+
+            color: #62594f;
+
+            margin-bottom: 46px;
         }
 
         .guest-label {
-            font-size: 0.76rem;
+            font-size: 0.69rem;
+
             text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: #91887d;
+
+            letter-spacing: 0.18em;
+
+            color: #92897e;
+
             margin-bottom: 8px;
         }
 
         .guest-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+
+            font-size: clamp(
+                1.8rem,
+                6vw,
+                2.6rem
+            );
+
             font-weight: 500;
-            margin-bottom: 28px;
+
+            margin-bottom: 30px;
         }
 
+
+        /* =========================
+           BUTTON
+        ========================== */
+
         .button {
-            display: inline-block;
-            padding: 13px 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 0;
+
+            padding: 13px 30px;
+
             background: #2e2b27;
-            color: #fff;
+            color: #ffffff;
+
             text-decoration: none;
-            border-radius: 999px;
-            font-size: 0.84rem;
+
+            border-radius: 100px;
+
+            font-family: 'Inter', sans-serif;
+
+            font-size: 0.82rem;
+            font-weight: 400;
+
             letter-spacing: 0.04em;
-            transition: 0.25s ease;
+
+            cursor: pointer;
+
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
         }
 
         .button:hover {
-            opacity: 0.82;
+            opacity: 0.85;
             transform: translateY(-2px);
         }
 
-        /* INTRO */
+
+        /* =========================
+           MAIN HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 24px;
+
+            background:
+                linear-gradient(
+                    rgba(248, 246, 241, 0.90),
+                    rgba(248, 246, 241, 0.96)
+                ),
+                url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=85');
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 750px;
+        }
+
+        .hero h2 {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: clamp(
+                3rem,
+                9vw,
+                6rem
+            );
+
+            font-weight: 500;
+
+            line-height: 0.95;
+
+            letter-spacing: -0.04em;
+
+            margin-bottom: 28px;
+        }
+
+        .hero-date {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 1.5rem;
+
+            color: #62594f;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            color: #736b62;
+
+            font-size: 0.92rem;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================== */
 
         .intro {
             text-align: center;
@@ -131,19 +331,36 @@
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.4rem, 6vw, 4rem);
+
+            font-size: clamp(
+                2.5rem,
+                7vw,
+                4.5rem
+            );
+
             font-weight: 500;
-            margin-bottom: 24px;
+
+            line-height: 1;
+
+            margin-bottom: 26px;
         }
 
         .intro p {
             max-width: 650px;
+
             margin: 0 auto;
-            font-size: 0.95rem;
+
+            font-size: 0.94rem;
+
             color: #686158;
+
+            line-height: 1.9;
         }
 
-        /* COUPLE */
+
+        /* =========================
+           COUPLE
+        ========================== */
 
         .couple {
             background: #ffffff;
@@ -151,239 +368,634 @@
 
         .couple-grid {
             display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 40px;
+
+            grid-template-columns:
+                1fr
+                auto
+                1fr;
+
+            gap: 45px;
+
             align-items: center;
+
             text-align: center;
         }
 
         .person h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+
+            font-size: clamp(
+                2.3rem,
+                6vw,
+                3.1rem
+            );
+
             font-weight: 500;
-            margin-bottom: 8px;
+
+            margin-bottom: 10px;
         }
 
         .person p {
             color: #81796f;
-            font-size: 0.88rem;
+
+            font-size: 0.86rem;
+
+            line-height: 1.8;
         }
 
         .couple-symbol {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.3rem;
+
+            font-size: 2.6rem;
+
             font-style: italic;
+
             color: #9d8a72;
         }
 
-        /* EVENT */
+
+        /* =========================
+           EVENT
+        ========================== */
 
         .event {
             text-align: center;
         }
 
         .event-card {
+            width: 100%;
+
             max-width: 650px;
-            margin: 40px auto 0;
+
+            margin: 42px auto 0;
+
+            padding: 48px 34px;
+
             border: 1px solid #ded8cf;
-            padding: 42px 32px;
-            background: rgba(255,255,255,0.45);
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.5
+                );
         }
 
         .event-card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
+
+            font-size: 2.4rem;
+
+            font-weight: 500;
+
             margin-bottom: 16px;
         }
 
+        .event-date {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 1.7rem;
+
+            margin-bottom: 18px;
+        }
+
         .event-detail {
-            margin: 8px 0;
+            margin: 7px 0;
+
             color: #675f55;
-            font-size: 0.92rem;
+
+            font-size: 0.9rem;
         }
 
         .event-card .button {
-            margin-top: 24px;
+            margin-top: 28px;
         }
 
-        /* QUOTE */
+
+        /* =========================
+           QUOTE
+        ========================== */
 
         .quote {
             background: #2e2b27;
-            color: #fff;
+
+            color: #ffffff;
+
             text-align: center;
         }
 
         .quote p {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 5vw, 3rem);
+
+            font-size: clamp(
+                1.9rem,
+                6vw,
+                3.2rem
+            );
+
             max-width: 720px;
+
             margin: 0 auto;
+
             font-style: italic;
+
             line-height: 1.3;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================== */
 
         footer {
-            padding: 48px 24px;
+            padding: 60px 24px;
+
             text-align: center;
-            font-size: 0.78rem;
+
+            font-size: 0.77rem;
+
             color: #91887d;
         }
 
+        .footer-names {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 1.6rem;
+
+            color: #62594f;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           MUSIC BUTTON
+        ========================== */
+
+        .music-btn {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 46px;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #ded8cf;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    248,
+                    246,
+                    241,
+                    0.92
+                );
+
+            color: #2e2b27;
+
+            font-size: 0.95rem;
+
+            cursor: pointer;
+
+            z-index: 900;
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,0,0,0.06);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                opacity 0.5s ease,
+                transform 0.25s ease;
+        }
+
+        .music-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .music-btn.playing {
+            animation: musicPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes musicPulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.06);
+            }
+        }
+
+
+        /* =========================
+           FADE IN CONTENT
+        ========================== */
+
+        .fade-section {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition:
+                opacity 0.9s ease,
+                transform 0.9s ease;
+        }
+
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
         @media (max-width: 700px) {
+
             section {
-                padding: 64px 20px;
+                padding: 72px 20px;
+            }
+
+            .cover {
+                padding:
+                    30px
+                    20px
+                    45px;
+            }
+
+            .cover-date {
+                font-size: 1.3rem;
+                margin-bottom: 38px;
             }
 
             .couple-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
+
+                gap: 28px;
             }
 
             .couple-symbol {
                 transform: rotate(90deg);
             }
 
-            .hero-date {
-                font-size: 1.35rem;
+            .event-card {
+                padding:
+                    40px
+                    24px;
             }
 
-            .guest-name {
-                font-size: 1.7rem;
+            .music-btn {
+                right: 16px;
+                bottom: 16px;
             }
+
         }
+
+
+        /* Reduce animation if requested */
+
+        @media (
+            prefers-reduced-motion:
+            reduce
+        ) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
+
+    <!-- =========================
+         AUDIO
+    ========================== -->
+
+    <audio
+        id="wedding-music"
+        loop
+        preload="auto"
+    >
+        <source
+            src="assets/paulyudin-157981.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+
+    <!-- =========================
+         COVER
+    ========================== -->
+
+    <div
+        class="cover"
+        id="cover"
+    >
+
+        <div class="cover-content">
 
             <div class="eyebrow">
                 The Wedding Of
             </div>
 
             <h1>
+
                 Tyo
-                <span class="ampersand">&</span>
+
+                <span class="ampersand">
+                    &
+                </span>
+
                 Fara
+
             </h1>
 
-            <div class="hero-date">
-                27 Maret 2027
+
+            <div class="cover-date">
+                27 · 03 · 2027
             </div>
+
 
             <div class="guest-label">
                 Dear
             </div>
 
-            <div class="guest-name" id="guest-name">
+
+            <div
+                class="guest-name"
+                id="guest-name"
+            >
                 Our Beloved Guest
             </div>
 
-            <a href="#invitation" class="button">
+
+            <button
+                class="button"
+                id="open-invitation"
+                type="button"
+            >
                 Open Invitation
-            </a>
+            </button>
 
         </div>
-    </section>
+
+    </div>
 
 
-    <!-- INTRO -->
-    <section class="intro" id="invitation">
-        <div class="container">
+
+    <!-- =========================
+         MUSIC BUTTON
+    ========================== -->
+
+    <button
+        id="music-toggle"
+        class="music-btn"
+        type="button"
+        aria-label="Toggle wedding music"
+        title="Music"
+    >
+        ♫
+    </button>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section
+        class="hero"
+        id="home"
+    >
+
+        <div class="hero-content">
 
             <div class="eyebrow">
-                Together with our families
+                Together With Our Families
             </div>
 
-            <h2 class="section-title">
-                We are getting married
+            <h2>
+                Tyo
+                <span class="ampersand">
+                    &
+                </span>
+                Fara
             </h2>
 
-            <p>
-                Dengan penuh rasa syukur dan kebahagiaan,
-                kami mengundang Anda untuk hadir dan menjadi bagian
-                dari hari istimewa kami.
+
+            <div class="hero-date">
+                27 Maret 2027
+            </div>
+
+
+            <p class="hero-description">
+
+                Dengan penuh rasa syukur,
+                kami mengundang Anda untuk
+                menjadi bagian dari salah satu
+                hari paling berharga dalam
+                perjalanan hidup kami.
+
             </p>
 
         </div>
+
     </section>
 
 
-    <!-- COUPLE -->
-    <section class="couple">
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section
+        class="intro fade-section"
+        id="invitation"
+    >
+
+        <div class="container">
+
+            <div class="eyebrow">
+                Our Wedding
+            </div>
+
+            <h2 class="section-title">
+                We Are Getting Married
+            </h2>
+
+
+            <p>
+
+                Dengan penuh rasa syukur
+                dan kebahagiaan,
+                kami bermaksud mengundang
+                Bapak/Ibu/Saudara/i
+                untuk hadir dan memberikan
+                doa restu pada pernikahan kami.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         COUPLE
+    ========================== -->
+
+    <section class="couple fade-section">
+
         <div class="container">
 
             <div class="couple-grid">
 
+
+                <!-- GROOM -->
+
                 <div class="person">
-                    <h3>Tyo Suwignyo</h3>
+
+                    <h3>
+                        Tyo Suwignyo
+                    </h3>
+
                     <p>
-                        Putra dari<br>
-                        Bapak Nama Ayah & Ibu Nama Ibu
+
+                        Putra dari
+
+                        <br>
+
+                        Bapak Nama Ayah
+                        &amp;
+                        Ibu Nama Ibu
+
                     </p>
+
                 </div>
+
 
                 <div class="couple-symbol">
                     &
                 </div>
 
+
+                <!-- BRIDE -->
+
                 <div class="person">
-                    <h3>Fara</h3>
+
+                    <h3>
+                        Fara
+                    </h3>
+
                     <p>
-                        Putri dari<br>
-                        Bapak Nama Ayah & Ibu Nama Ibu
+
+                        Putri dari
+
+                        <br>
+
+                        Bapak Nama Ayah
+                        &amp;
+                        Ibu Nama Ibu
+
                     </p>
+
                 </div>
+
 
             </div>
 
         </div>
+
     </section>
 
 
-    <!-- EVENT -->
-    <section class="event">
+
+    <!-- =========================
+         EVENT
+    ========================== -->
+
+    <section class="event fade-section">
+
         <div class="container">
 
             <div class="eyebrow">
                 Save The Date
             </div>
 
+
             <h2 class="section-title">
                 Wedding Celebration
             </h2>
 
+
             <div class="event-card">
 
                 <h3>
-                    Sunday
+                    Sabtu
                 </h3>
 
-                <div class="event-detail">
-                    20 September 2026
+
+                <div class="event-date">
+                    27 Maret 2027
                 </div>
+
 
                 <div class="event-detail">
                     10.00 WIB — selesai
                 </div>
 
-                <div class="event-detail">
+
+                <div
+                    class="event-detail"
+                    style="margin-top: 20px;"
+                >
                     Wedding Venue
                 </div>
 
+
                 <div class="event-detail">
-                    Padang, West Sumatra
+                    Padang, Sumatera Barat
                 </div>
+
 
                 <a
                     href="https://maps.google.com"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="button"
                 >
                     View Location
@@ -392,46 +1004,388 @@
             </div>
 
         </div>
+
     </section>
 
 
-    <!-- QUOTE -->
-    <section class="quote">
+
+    <!-- =========================
+         QUOTE
+    ========================== -->
+
+    <section class="quote fade-section">
+
         <div class="container">
 
             <p>
-                “Two lives, two hearts,
+
+                “Two lives,
+                two hearts,
                 one timeless journey.”
+
             </p>
 
         </div>
+
     </section>
 
 
-    <!-- FOOTER -->
-    <footer>
 
-        <div>
-            Thank you for celebrating with us.
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="fade-section">
+
+        <div class="footer-names">
+            Tyo & Fara
         </div>
 
-        <div style="margin-top: 8px;">
-            Tyo & Fara · 2026
+
+        <div>
+            Thank you for celebrating
+            with us.
+        </div>
+
+
+        <div style="margin-top: 10px;">
+            27 · 03 · 2027
         </div>
 
     </footer>
 
 
-    <!-- PERSONALIZED GUEST NAME -->
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
     <script>
-        const params = new URLSearchParams(window.location.search);
 
-        const name = params.get('name');
+        /* =========================
+           PERSONALIZED GUEST
+        ========================== */
 
-        if (name && name.trim() !== '') {
-            document.getElementById('guest-name').textContent = name;
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const guestName =
+            params.get('name');
+
+
+        if (
+            guestName &&
+            guestName.trim() !== ''
+        ) {
+
+            document
+                .getElementById(
+                    'guest-name'
+                )
+                .textContent =
+                    guestName.trim();
+
         }
+
+
+
+        /* =========================
+           ELEMENT REFERENCES
+        ========================== */
+
+        const cover =
+            document.getElementById(
+                'cover'
+            );
+
+
+        const openInvitation =
+            document.getElementById(
+                'open-invitation'
+            );
+
+
+        const music =
+            document.getElementById(
+                'wedding-music'
+            );
+
+
+        const musicButton =
+            document.getElementById(
+                'music-toggle'
+            );
+
+
+        let isPlaying = false;
+
+
+
+        /* =========================
+           MUSIC SETTINGS
+        ========================== */
+
+        /*
+        Volume 0.45 = 45%.
+        Bisa dinaikkan / diturunkan.
+        */
+
+        music.volume = 0.45;
+
+
+
+        function setMusicUI(
+            playing
+        ) {
+
+            if (playing) {
+
+                musicButton.textContent =
+                    '❚❚';
+
+                musicButton.classList.add(
+                    'playing'
+                );
+
+            } else {
+
+                musicButton.textContent =
+                    '♫';
+
+                musicButton.classList.remove(
+                    'playing'
+                );
+
+            }
+
+        }
+
+
+
+        function playMusic() {
+
+            const playPromise =
+                music.play();
+
+
+            if (
+                playPromise !== undefined
+            ) {
+
+                playPromise
+
+                    .then(() => {
+
+                        isPlaying = true;
+
+                        setMusicUI(true);
+
+                    })
+
+                    .catch((error) => {
+
+                        console.log(
+                            'Music playback failed:',
+                            error
+                        );
+
+                        isPlaying = false;
+
+                        setMusicUI(false);
+
+                    });
+
+            }
+
+        }
+
+
+
+        function pauseMusic() {
+
+            music.pause();
+
+            isPlaying = false;
+
+            setMusicUI(false);
+
+        }
+
+
+
+        /* =========================
+           OPEN INVITATION
+        ========================== */
+
+        openInvitation
+            .addEventListener(
+                'click',
+                () => {
+
+                    /*
+                    Karena klik user dianggap
+                    interaction,
+                    browser biasanya mengizinkan
+                    musik mulai di sini.
+                    */
+
+                    playMusic();
+
+
+                    /*
+                    Fade out cover.
+                    */
+
+                    cover.classList.add(
+                        'hidden'
+                    );
+
+
+                    /*
+                    Enable scroll.
+                    */
+
+                    document.body
+                        .classList.add(
+                            'invitation-open'
+                        );
+
+
+                    /*
+                    Show music control.
+                    */
+
+                    musicButton
+                        .classList.add(
+                            'visible'
+                        );
+
+
+                    /*
+                    Mulai dari atas halaman.
+                    */
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'instant'
+                    });
+
+                }
+            );
+
+
+
+        /* =========================
+           MUSIC TOGGLE
+        ========================== */
+
+        musicButton
+            .addEventListener(
+                'click',
+                () => {
+
+                    if (isPlaying) {
+
+                        pauseMusic();
+
+                    } else {
+
+                        playMusic();
+
+                    }
+
+                }
+            );
+
+
+
+        /* =========================
+           MUSIC STATE SYNC
+        ========================== */
+
+        music.addEventListener(
+            'play',
+            () => {
+
+                isPlaying = true;
+
+                setMusicUI(true);
+
+            }
+        );
+
+
+        music.addEventListener(
+            'pause',
+            () => {
+
+                isPlaying = false;
+
+                setMusicUI(false);
+
+            }
+        );
+
+
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================== */
+
+        const animatedSections =
+            document.querySelectorAll(
+                '.fade-section'
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+
+                (entries) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add(
+                                        'visible'
+                                    );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        animatedSections.forEach(
+            (section) => {
+
+                observer.observe(
+                    section
+                );
+
+            }
+        );
+
     </script>
+
 
 </body>
 </html>
+```
