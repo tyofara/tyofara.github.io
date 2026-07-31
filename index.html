@@ -156,7 +156,7 @@
 
     <!-- Main Content -->
     <main>
-        <h1>Timeless design for the modern era.</h1>
+        <h1 id="welcome-text">Timeless design for the modern era.</h1>
         <p>Kami menciptakan identitas visual dan pengalaman digital yang bersih, berkarakter, dan bertahan lama.</p>
         <a href="#explore" class="cta-btn">Jelajahi Karya</a>
     </main>
@@ -173,5 +173,14 @@
         </div>
     </footer>
 
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+
+        if (name) {
+            document.getElementById('welcome-text').textContent = `Welcome, ${name}`;
+        }
+    </script>
+    
 </body>
 </html>
